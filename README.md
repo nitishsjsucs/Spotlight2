@@ -264,6 +264,13 @@ Video Recording → AI Analysis → Voice Coaching
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+## My Contributions
+
+- **AI Video Analysis Pipeline** — Built the video recording and analysis pipeline using Google Gemini AI to evaluate speech delivery, body language, filler words, pacing, and eye contact from recorded presentation videos.
+- **Real-Time Voice Coaching** — Integrated Vapi voice AI for live coaching sessions that provide real-time feedback on speaking pace, volume, clarity, and confidence during practice runs.
+- **Progress Tracking System** — Designed the progress tracking module with session history, improvement metrics over time, and personalized coaching recommendations based on historical performance.
+- **React Native UI** — Developed the mobile-first interface with video recording controls, analysis result displays, coaching session management, and progress visualization charts.
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
