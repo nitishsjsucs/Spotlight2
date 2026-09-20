@@ -1,3 +1,92 @@
+# ---------------------------------------------------------------------------
+# Secrets and signing material
+#
+# NOTHING in this section may ever be committed. If any of it has been
+# committed in the past, treat it as compromised and rotate it -- removing a
+# file from HEAD does not remove it from git history.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+credentials.json
+credentials/
+google-services.json
+GoogleService-Info.plist
 *.keystore
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.cer
+*.certSigningRequest
+
+# ---------------------------------------------------------------------------
+# Node
+# ---------------------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ---------------------------------------------------------------------------
+# Expo
+# ---------------------------------------------------------------------------
+.expo/
+.expo-shared/
+dist/
+web-build/
+expo-env.d.ts.bak
+
+# ---------------------------------------------------------------------------
+# Build output / distributable binaries
+# ---------------------------------------------------------------------------
+build/
+*.aab
 *.apk
 *.apks
+*.ipa
+*.jar
+!android/gradle/wrapper/gradle-wrapper.jar
+*.tar.gz
+*.zip
+
+# ---------------------------------------------------------------------------
+# Android
+# ---------------------------------------------------------------------------
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+android/captures/
+*.iml
+.idea/
+*.hprof
+
+# ---------------------------------------------------------------------------
+# iOS / Xcode
+# ---------------------------------------------------------------------------
+ios/Pods/
+ios/build/
+ios/.xcode.env.local
+*.xcuserstate
+xcuserdata/
+DerivedData/
+
+# ---------------------------------------------------------------------------
+# Native / Metro / caches
+# ---------------------------------------------------------------------------
+.metro-health-check*
+.kotlin/
+*.tsbuildinfo
+
+# ---------------------------------------------------------------------------
+# Editor / OS cruft
+# ---------------------------------------------------------------------------
+.DS_Store
+._*
+.AppleDouble
+Thumbs.db
+*.swp
+*~
