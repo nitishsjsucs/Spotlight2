@@ -164,19 +164,6 @@ must be treated as compromised and rotated:
 
 ---
 
-## Contributions
-
-- **AI video analysis pipeline** — recording through to structured Gemini
-  critique, including the four coaching personas and the scoring rubric.
-- **Real-time voice coaching** — Vapi integration, assistant routing per
-  exercise, and session lifecycle handling.
-- **Guided self-review** — the six-step flow that runs while analysis is in
-  flight.
-- **React Native UI** — recorder controls, analysis presentation, custom tab
-  bar, video playback modal, and progress views.
-
----
-
 ## Licence
 
 Not currently specified. `package.json` is marked `private`, and no LICENSE
