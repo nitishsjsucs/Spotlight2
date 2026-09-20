@@ -5,9 +5,9 @@
 
 // Gemini API Configuration
 export const GEMINI_CONFIG = {
-  API_KEY: process.env.EXPO_PUBLIC_GEMINI_API_KEY || "AIzaSyAWREu3BaSKgFEo6gLDXBuNFUn8C-oJSzg",
+  API_KEY: process.env.EXPO_PUBLIC_GEMINI_API_KEY ?? "",
   MODEL: "gemini-2.5-flash", // or gemini-1.5-flash
-  UPLOAD_URL: `https://generativelanguage.googleapis.com/upload/v1beta/files?key=${process.env.EXPO_PUBLIC_GEMINI_API_KEY || "AIzaSyAWREu3BaSKgFEo6gLDXBuNFUn8C-oJSzg"}`,
+  UPLOAD_URL: `https://generativelanguage.googleapis.com/upload/v1beta/files?key=${process.env.EXPO_PUBLIC_GEMINI_API_KEY ?? ""}`,
   FILES_BASE: "https://generativelanguage.googleapis.com/v1beta",
 };
 
