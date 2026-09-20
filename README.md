@@ -1,287 +1,183 @@
-# SpotLight - AI-Powered Speech Coaching App
+# SpotLight (SpeechCoach)
 
-**SpotLight** is a comprehensive React Native mobile application designed to help users improve their speaking skills through AI-powered video analysis and personalized voice coaching. Built with Expo and TypeScript, it provides a complete speech practice and improvement ecosystem.
+An Expo / React Native app for practising spoken communication. You record a
+short video of yourself speaking, Google Gemini analyses the recording, and a
+Vapi voice agent coaches you through the results in a live conversation.
 
-## 🎯 What is SpotLight?
+The npm package and the native bundle identifier are both `SpeechCoach`
+(`com.phantomzneurox.SpeechCoach`); "SpotLight" is the product name used in the
+UI. The two names refer to the same app.
 
-SpotLight is your personal speech coach that combines video recording, AI analysis, and real-time voice coaching to help you become a more confident and effective speaker. Whether you're preparing for interviews, presentations, sales pitches, or just want to improve your general communication skills, SpotLight provides personalized feedback and guidance.
-
-## ✨ Key Features
-
-### 📹 Video Recording & Practice
-- **30-second practice sessions** with rotating speaking prompts
-- **Front/back camera support** with automatic video compression
-- **Real-time recording indicators** and intuitive camera controls
-- **Automatic video saving** to device photo library
-- **Session metadata tracking** with thumbnails and duration
-
-### 🤖 AI-Powered Speech Analysis
-- **Google Gemini AI integration** for comprehensive video analysis
-- **Multiple analysis modes**:
-  - General Communication Coaching
-  - Interview Practice (STAR methodology)
-  - Sales Presentation Analysis
-  - Startup Pitch Evaluation
-- **Detailed scoring system** across 6 categories:
-  - Voice & Sound (pitch, volume, tempo, clarity, pausing, prosody)
-  - Word Choice (formality, complexity, repetition, directness, emotional tone)
-  - Sentence Structure (length, narrative style, questions, metaphors)
-  - Conversational Style (turn-taking, responsiveness, politeness, assertiveness, humor)
-  - Non-verbal Cues (laughter, gestures, facial expressions)
-  - Overall Impression (warmth, authority, charisma, overall score)
-
-### 🎤 Real-Time Voice Coaching
-- **VAPI AI integration** for interactive voice coaching sessions
-- **Personalized coaching** based on your speech analysis results
-- **Real-time conversation** with AI coach
-- **Practice exercises** and immediate feedback
-- **Session history** and conversation tracking
-
-### 📊 Progress Tracking & Analytics
-- **Dashboard with practice statistics** (total sessions, duration, average)
-- **Recording history** with analysis status indicators
-- **Detailed analysis results** with visual score breakdowns
-- **Speech pattern analysis** (filler words, repeated phrases)
-- **Export functionality** for data portability
-
-### 🔐 User Management
-- **Authentication system** with login/signup
-- **User profiles** with progress tracking
-- **Data management** (export, clear cache, clear recordings)
-- **Secure local storage** for recordings and analysis
-
-## 🏗️ Technical Architecture
-
-### Frontend Stack
-- **React Native** with Expo SDK 53
-- **TypeScript** for type safety
-- **Expo Router** for navigation
-- **React Navigation** for tab and stack navigation
-- **Expo Camera** for video recording
-- **Expo Media Library** for video storage
-- **React Native Animatable** for smooth animations
-- **Expo Linear Gradient** for visual effects
-
-### AI & Backend Services
-- **Google Gemini API** for video analysis
-- **VAPI AI** for voice coaching
-- **Custom API service** with fallback mechanisms
-- **Mock analysis** for development and testing
-
-### Key Dependencies
-```json
-{
-  "@vapi-ai/react-native": "^0.3.0",
-  "@daily-co/react-native-daily-js": "^0.81.0",
-  "expo-camera": "^16.1.11",
-  "expo-media-library": "~17.1.7",
-  "react-native-animatable": "^1.4.0",
-  "expo-linear-gradient": "^14.1.5"
-}
-```
-
-## 📱 App Structure
-
-### Main Screens
-- **Dashboard** (`app/(tabs)/dashboard.tsx`) - Practice statistics and recording history
-- **Camera Practice** (`app/camera-practice.tsx`) - Video recording with AI prompts
-- **AI Analysis** (`app/ai-analysis.tsx`) - Detailed analysis results and scoring
-- **Voice Coach** (`app/voice-coach.tsx`) - Interactive AI coaching sessions
-- **Profile** (`app/(tabs)/profile.tsx`) - User settings and data management
-
-### Key Components
-- **VideoPlayerModal** - Playback of recorded sessions
-- **CustomTabBar** - Enhanced navigation with practice button
-- **NewRecordingModal** - Quick recording access
-- **AuthNavigator** - Authentication flow management
-
-### Utility Services
-- **speechAnalysis.ts** - AI analysis orchestration
-- **geminiService.ts** - Google Gemini API integration
-- **vapiService.ts** - VAPI voice coaching integration
-- **recordingUtils.ts** - Video metadata management
-- **apiService.ts** - Backend API communication
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+ and npm
-- Expo CLI (`npm install -g @expo/cli`)
-- iOS Simulator or Android Emulator (or physical device)
-- Google Gemini API key
-- VAPI API key (optional, for voice coaching)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd speechcoach
-   ```
-
-2. **Install dependencies**
-```bash
-npm install
-   ```
-
-3. **Set up environment variables**
-   Create a `.env` file in the project root:
-   ```bash
-   # Gemini API Configuration
-   EXPO_PUBLIC_GEMINI_API_KEY=your_gemini_api_key_here
-   
-   # VAPI Configuration (optional)
-   EXPO_PUBLIC_VAPI_PUBLIC_KEY=your_vapi_public_key_here
-   
-   # Backend API Configuration (optional)
-   EXPO_PUBLIC_API_URL=http://localhost:3000
-   
-   # Development Configuration
-   EXPO_PUBLIC_DEBUG_MODE=false
-   ```
-
-4. **Start the development server**
-   ```bash
-   npm start
-   ```
-
-5. **Run on device/simulator**
-   ```bash
-   # iOS
-   npm run ios
-   
-   # Android
-   npm run android
-   
-   # Web
-   npm run web
-   ```
-
-## 🔧 Configuration
-
-### Gemini API Setup
-1. Visit [Google AI Studio](https://aistudio.google.com/)
-2. Create a new API key
-3. Add it to your `.env` file as `EXPO_PUBLIC_GEMINI_API_KEY`
-
-### VAPI Setup (Optional)
-1. Sign up at [VAPI Dashboard](https://dashboard.vapi.ai)
-2. Get your public key from Settings → API Keys
-3. Add it to your `.env` file as `EXPO_PUBLIC_VAPI_PUBLIC_KEY`
-
-### Permissions
-The app requires the following permissions:
-- **Camera** - For video recording
-- **Microphone** - For audio recording
-- **Photo Library** - For saving recordings
-
-## 📖 How to Use
-
-### 1. Record a Practice Session
-- Tap the center practice button on the dashboard
-- Grant camera and microphone permissions
-- Choose from rotating speaking prompts
-- Record a 30-second practice video
-- Video is automatically saved and analyzed
-
-### 2. Review AI Analysis
-- After recording, you're automatically taken to the analysis screen
-- View your overall score and detailed breakdowns
-- Explore strengths, areas for improvement, and speech patterns
-- Switch between Overview, Detailed, and Patterns tabs
-
-### 3. Start Voice Coaching
-- From the analysis screen, tap "Start Voice Coaching"
-- Have a real-time conversation with your AI coach
-- Receive personalized feedback based on your analysis
-- Practice specific areas for improvement
-
-### 4. Track Your Progress
-- View your practice statistics on the dashboard
-- Access your recording history
-- Monitor your improvement over time
-- Export your data for external analysis
-
-## 🎨 Design Philosophy
-
-SpotLight follows a clean, modern design approach with:
-- **Minimalist interface** focused on the core experience
-- **Smooth animations** for enhanced user engagement
-- **Color-coded scoring** for easy interpretation
-- **Intuitive navigation** with clear visual hierarchy
-- **Accessible design** with proper contrast and sizing
-
-## 🔄 Data Flow
-
-```
-Video Recording → AI Analysis → Voice Coaching
-     ↓                ↓              ↓
-  Local Storage   Gemini API    VAPI Service
-     ↓                ↓              ↓
-  Metadata DB    Analysis Results  Coaching Session
-     ↓                ↓              ↓
-  Dashboard      Detailed View   Conversation History
-```
-
-## 🛠️ Development
-
-### Project Structure
-```
-├── app/                    # Main app screens
-│   ├── (tabs)/            # Tab navigation screens
-│   ├── camera-practice.tsx # Video recording
-│   ├── ai-analysis.tsx    # Analysis results
-│   └── voice-coach.tsx    # Voice coaching
-├── components/            # Reusable components
-├── utils/                # Utility functions and services
-├── contexts/             # React contexts
-├── hooks/                # Custom hooks
-├── constants/            # App constants
-└── assets/              # Images and fonts
-```
-
-### Key Features Implementation
-- **Video Recording**: Expo Camera with compression and metadata
-- **AI Analysis**: Gemini API with comprehensive scoring system
-- **Voice Coaching**: VAPI integration with real-time conversation
-- **Data Management**: AsyncStorage for local persistence
-- **Navigation**: Expo Router with typed routes
-
-## 📈 Future Enhancements
-
-- **Batch Analysis** - Analyze multiple recordings simultaneously
-- **Custom Prompts** - User-defined speaking prompts
-- **Progress Analytics** - Advanced tracking and insights
-- **Social Features** - Share progress with mentors/peers
-- **Offline Mode** - Practice without internet connection
-- **Multi-language Support** - Analysis in different languages
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## My Contributions
-
-- **AI Video Analysis Pipeline** — Built the video recording and analysis pipeline using Google Gemini AI to evaluate speech delivery, body language, filler words, pacing, and eye contact from recorded presentation videos.
-- **Real-Time Voice Coaching** — Integrated Vapi voice AI for live coaching sessions that provide real-time feedback on speaking pace, volume, clarity, and confidence during practice runs.
-- **Progress Tracking System** — Designed the progress tracking module with session history, improvement metrics over time, and personalized coaching recommendations based on historical performance.
-- **React Native UI** — Developed the mobile-first interface with video recording controls, analysis result displays, coaching session management, and progress visualization charts.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Google Gemini** for AI video analysis capabilities
-- **VAPI** for voice coaching integration
-- **Expo** for the excellent React Native development platform
-- **React Native community** for the robust ecosystem
+**Status: prototype.** Sign-in is mocked and there is no backend of the
+project's own — see [What is and isn't real](#what-is-and-isnt-real).
 
 ---
 
-**Ready to improve your speaking skills?** Download SpotLight and start your journey to becoming a more confident and effective communicator! 🎤✨
+## What it does
+
+**Record.** `app/camera-practice.tsx` drives `expo-camera` with a 30-second cap,
+front/back switching, and a rotating set of speaking prompts. Finished takes are
+written to the device photo library via `expo-media-library`, and a thumbnail
+plus duration metadata is kept in AsyncStorage by `utils/recordingUtils.ts`.
+
+**Analyse.** `utils/geminiService.ts` uploads the video to the Gemini Files API
+and asks for a structured critique. `utils/speechAnalysis.ts` defines four
+coaching personas, each with its own model and temperature:
+
+| Mode | Model | Focus |
+|---|---|---|
+| `general` | gemini-1.5-flash | accent, pacing, filler words, clarity, prosody |
+| `interview` | gemini-1.5-pro | STAR structure, relevance, behavioural signals |
+| `sales` | gemini-1.5-flash | discovery, objection handling, value articulation |
+| `pitch` | gemini-1.5-pro | narrative, differentiation, traction, the ask |
+
+Results render in `app/ai-analysis.tsx` as an overall score plus per-category
+breakdowns (voice, word choice, sentence structure, conversational style,
+non-verbal cues, overall impression).
+
+**Reflect while you wait.** `app/guided-analysis.tsx` runs a six-step
+self-review — intro, watch, reflect, focus, notes, complete — so you critique
+your own take while Gemini is still processing. Your notes are stored alongside
+the recording.
+
+**Get coached.** `utils/vapiService.ts` opens a live voice session with a Vapi
+assistant, seeded with your analysis, in `app/voice-coach.tsx`. Two drill
+exercises (`s-pronunciation`, `quick-introduction`) each have their own
+assistant and their own instruction screen at `app/exercise/[id].tsx`.
+
+---
+
+## Layout
+
+```
+app/
+  index.tsx              redirect: authenticated -> /dashboard, else -> /login
+  _layout.tsx            root stack + AuthProvider
+  login.tsx signup.tsx   mock auth screens
+  (tabs)/
+    _layout.tsx          tab bar (see note below)
+    dashboard.tsx        practice stats + recording history
+    practice.tsx         exercise list
+    progress.tsx         NOT currently reachable (tab commented out)
+  camera-practice.tsx    30s recorder
+  ai-analysis.tsx        Gemini results
+  guided-analysis.tsx    guided self-review
+  voice-coach.tsx        live Vapi session
+  exercise/[id].tsx      per-exercise instructions
+  profile.tsx            settings, data export/clear  (stack route, not a tab)
+components/              VideoPlayerModal, CustomTabBar, NewRecordingModal, ...
+utils/                   geminiService, vapiService, speechAnalysis,
+                         recordingUtils, exerciseSessionStorage, apiService
+contexts/AuthContext.tsx mock auth state
+config/environment.ts    all API configuration
+android/ ios/            prebuilt native projects (Expo prebuild output,
+                         committed intentionally)
+```
+
+Only **Dashboard** and **Practice** are live tabs. The `progress` and `profile`
+tab entries in `app/(tabs)/_layout.tsx` are commented out; `progress.tsx` is
+kept because it is finished work waiting on that tab being re-enabled, and
+`profile.tsx` is still reachable by navigation from the dashboard.
+
+---
+
+## What is and isn't real
+
+Worth knowing before you read the code or demo the app:
+
+- **Authentication is mocked.** `contexts/AuthContext.tsx` accepts any
+  non-empty email/password, waits a second, and writes the literal string
+  `mock-token` to AsyncStorage. There is no account system and no password
+  check.
+- **There is no backend.** `utils/apiService.ts` posts to
+  `EXPO_PUBLIC_API_URL` (default `http://localhost:3000`), but no server for it
+  lives in this repo. Analysis works because `geminiService.ts` calls Google
+  directly from the device.
+- **Storage is local and unencrypted.** Recordings go to the photo library;
+  metadata and analyses go to AsyncStorage. Nothing syncs.
+- **The Gemini key ships in the client.** Any `EXPO_PUBLIC_*` variable is
+  inlined into the JS bundle and is readable by anyone with the app. For
+  anything beyond a prototype, proxy Gemini through a server and keep the key
+  there.
+
+---
+
+## Getting started
+
+Requires Node 18+, and Xcode or Android Studio for native builds.
+
+```bash
+npm ci
+cp .env.example .env    # then fill it in — see below
+npm start               # or: npm run ios / npm run android / npm run web
+```
+
+`node_modules/` is not tracked; `npm ci` reproduces it exactly from
+`package-lock.json`.
+
+### Environment
+
+Create `.env` in the project root. It is gitignored and must stay that way.
+
+```bash
+EXPO_PUBLIC_GEMINI_API_KEY=...     # required — aistudio.google.com
+EXPO_PUBLIC_VAPI_PUBLIC_KEY=...    # required for voice coaching — dashboard.vapi.ai
+EXPO_PUBLIC_API_URL=http://localhost:3000   # optional, unused without a backend
+EXPO_PUBLIC_DEBUG_MODE=false
+EXPO_PUBLIC_MOCK_ANALYSIS=false    # true to skip Gemini and use canned results
+```
+
+`config/environment.ts` reads these and `validateConfig()` warns on startup if
+either key is missing. There is deliberately no fallback key in the source.
+
+Longer setup notes live in [`GEMINI_SETUP.md`](GEMINI_SETUP.md) and
+[`VAPI_SETUP.md`](VAPI_SETUP.md).
+
+### Permissions
+
+Camera, microphone and photo library, declared in `app.json` for both
+platforms. The app asks on first use of the recorder.
+
+### Builds
+
+Native projects are committed, so `npm run ios` / `npm run android` build
+locally. Cloud builds use EAS (`eas.json`, project
+`b1545b6e-ccfb-4acb-9f12-92142fadbaf7`). Build output — `.aab`, `.apk`, `.ipa` —
+is gitignored; don't commit it.
+
+---
+
+## Security
+
+Three credentials were committed to this public repository and **remain in git
+history**. Removing them from the current tree does not undo that. All three
+must be treated as compromised and rotated:
+
+| What | Where it was | Action |
+|---|---|---|
+| Android signing keystore | `credentials/android/keystore.jks` | Rotate; if it is the Play upload key, request an upload key reset in Play Console |
+| EAS credentials file | `credentials.json` | Revoke and reissue its contents |
+| Google Gemini API key | hardcoded fallback in `config/environment.ts` | Revoke and reissue in Google AI Studio |
+
+`.gitignore` now blocks `.env`, `credentials.json`, `credentials/`, `*.jks`,
+`*.keystore`, `*.p12`, `*.p8` and `*.mobileprovision`.
+
+---
+
+## Contributions
+
+- **AI video analysis pipeline** — recording through to structured Gemini
+  critique, including the four coaching personas and the scoring rubric.
+- **Real-time voice coaching** — Vapi integration, assistant routing per
+  exercise, and session lifecycle handling.
+- **Guided self-review** — the six-step flow that runs while analysis is in
+  flight.
+- **React Native UI** — recorder controls, analysis presentation, custom tab
+  bar, video playback modal, and progress views.
+
+---
+
+## Licence
+
+Not currently specified. `package.json` is marked `private`, and no LICENSE
+file is present.
